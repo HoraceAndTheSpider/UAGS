@@ -100,8 +100,8 @@ except:
 ## -------- input dir
 
 if platform.system()=="Darwin":
-    inputdir="/Volumes/roms/amiga/"
-    inputdir = "/Users/horaceandthespider/Documents/Gaming/AmigaWHD/WorkingFolder2/ECS Pack/"
+    inputdir="/Volumes/roms-1/amiga/"
+  ##  inputdir = "/Users/horaceandthespider/Documents/Gaming/AmigaWHD/WorkingFolder2/ECS Pack/"
 
  ## -------- I SEE YOU AINGER! o_o
 elif platform.node()=="RAVEN":
@@ -333,11 +333,6 @@ for filename in glob.glob(inputdir+'*.uae'):
             GameEntry = MakeGameEntry(RealName,GameVariant,GameType,WebString,AllImages)
     
     ## ========== do the image downloads
-            print("real name: " + RealName)
-            print("web string: "+WebString)
-            print("all images: " + AllImages)
-            print("new images: " + NewImages)
-            print("input dir: "+inputdir)
             ErrorMessage = ErrorMessage + GetPictures(RealName,WebString,AllImages,NewImages,inputdir)
  
 

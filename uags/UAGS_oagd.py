@@ -227,7 +227,7 @@ def OAGD_EntryResult(SearchResultPage,FindData):
 ##    f.close
 
     soup = BeautifulSoup(SearchResultPage,'html.parser')
-    soup = soup.find("table")
+    soup = soup.find("table", {"class" : "key-value-table" })
     soup = soup.find_all("td")
 
 ##    FindData = 'tags'
@@ -364,7 +364,7 @@ def MakeGameEntry(RealName,GameVariant,GameType,WebString,IncludeExtras):
             GameEntry = GameEntry + "\t\t<name>" + SelectedName + "</name>\n"
             GameEntry = GameEntry + "\t\t<image>./boxart/" + RealName.replace('.uae','') + ".jpg" + "</image>\n"
 
-            if IncludeExtras = True:
+            if IncludeExtras == True:
                 GameEntry = GameEntry + "\t\t<marquee>./wheel/" + RealName.replace('.uae','') + ".png" + "</marquee>\n"
                 
                 if (os.path.isfile("./video/" + RealName.replace('.uae','') + ".mp4")) == True:
