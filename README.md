@@ -10,10 +10,12 @@ From Linux Command Line or via SSH, use the following:
 
 ### Install Direct
 ```bash
+cd /home/pi
 sudo wget https://github.com/HoraceAndTheSpider/UAGS/archive/master.zip
 sudo unzip -o master.zip
 sudo rm master.zip
-mv UAGS-master .uags
+sudo rm -r .uags
+sudo mv UAGS-master .uags
 ```
 
 ### Updating/Running:
