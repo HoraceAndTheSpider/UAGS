@@ -321,7 +321,7 @@ def HOL_Number(inURL):
 
 
 
-def MakeGameEntry(RealName,GameVariant,GameType,WebString):
+def MakeGameEntry(RealName,GameVariant,GameType,WebString,IncludeExtras):
 # ====     create individual game XML based on reading from the  cached page
      # etree  ... ?
 
@@ -364,14 +364,13 @@ def MakeGameEntry(RealName,GameVariant,GameType,WebString):
             GameEntry = GameEntry + "\t\t<name>" + SelectedName + "</name>\n"
             GameEntry = GameEntry + "\t\t<image>./boxart/" + RealName.replace('.uae','') + ".jpg" + "</image>\n"
 
-
-            GameEntry = GameEntry + "\t\t<marquee>./wheel/" + RealName.replace('.uae','') + ".png" + "</marquee>\n"
-
-
-            if (os.path.isfile("./video/" + RealName.replace('.uae','') + ".mp4")) == True:
-                GameEntry = GameEntry + "\t\t<video>./video/" + RealName.replace('.uae','') + ".mp4" + "</video>\n"
-            else:
-                GameEntry = GameEntry + "\t\t<video>./snap/" + RealName.replace('.uae','') + ".png" + "</video>\n"
+            if IncludeExtras = True:
+                GameEntry = GameEntry + "\t\t<marquee>./wheel/" + RealName.replace('.uae','') + ".png" + "</marquee>\n"
+                
+                if (os.path.isfile("./video/" + RealName.replace('.uae','') + ".mp4")) == True:
+                    GameEntry = GameEntry + "\t\t<video>./video/" + RealName.replace('.uae','') + ".mp4" + "</video>\n"
+                else:
+                    GameEntry = GameEntry + "\t\t<video>./snap/" + RealName.replace('.uae','') + ".png" + "</video>\n"
 
             
             LongText = OAGD_EntryResult(WebString,'__long_description')

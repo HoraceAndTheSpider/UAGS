@@ -145,7 +145,7 @@ if XML.find("?xml version=")<0 or XML.find("<gameList>")<0 or XML.find("</gameLi
 
     KillXML = input ("Delete file prior to restart? (y/n) "+ bcolors.ENDC )
 
-    if KillXML != "yes" and AllImages != "y" and AllImages != "Y" and AllImages != "YES":
+    if KillXML != "yes" and KillXML != "y" and KillXML != "Y" and KillXML != "YES":
         raise SystemExit
     else:
         print("Deleting 'gamelist.xml'")
@@ -177,7 +177,7 @@ for filename in glob.glob(inputdir+'*.uae'):
     if GameName == "_Config Maker":
         print("Scraping data for " + bcolors.OKGREEN + GameName + bcolors.ENDC + " from external source.")
         
-        GameEntry = MakeGameEntry(RealName,'','','')
+        GameEntry = MakeGameEntry(RealName,'','','',AllImages)
         ErrorMessage = ErrorMessage + GetPictures(RealName,"",AllImages,NewImages,inputdir)
     
     elif GameName.find(ScanFilter) == -1 and ScanFilter != '':
@@ -330,12 +330,16 @@ for filename in glob.glob(inputdir+'*.uae'):
 
     # ====     create individual game XML based on reading from the above cached page
         ##    see UAGS_oagd.py
-            GameEntry = MakeGameEntry(RealName,GameVariant,GameType,WebString)
+            GameEntry = MakeGameEntry(RealName,GameVariant,GameType,WebString,AllImages)
     
     ## ========== do the image downloads
+            print("real name: " + RealName)
+            print("web string: "+WebString)
+            print("all images: " + AllImages)
+            print("new images: " + NewImages)
+            print("input dir: "+inputdir)
             ErrorMessage = ErrorMessage + GetPictures(RealName,WebString,AllImages,NewImages,inputdir)
-
-
+ 
 
     ##      remove any previous game entry (if overwrite is on)
 
