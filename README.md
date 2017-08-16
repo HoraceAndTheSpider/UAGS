@@ -1,6 +1,15 @@
 # UAGS
 UAE Amiga Game Scraper, primarily for UAE4ARM/Amiberry on the Raspberry Pi.
 
+# *** NOTE: THIS SCRAPER PROJECT IS NO LONGER IN DEVELOPMENT *** 
+
+I have decided to close down development of this project, as it has now been supeseded by the vastly superior SkyScraper project by Lad Muldjord.
+
+You can find details of his project here: https://github.com/muldjord/skyscraper
+
+
+***  Old ReadMe for reference ***
+
 This Python script will scrape game information form openretro.org in order to generate gamelist.xml, and can also download boxart/screenshots.
 
 
